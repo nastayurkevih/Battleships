@@ -6,24 +6,25 @@
 //поменять размерность жизне йга n*2 
 using namespace std;
 const int n = 10;//размер карты
+int N = n * 2;//размер массива жизни
 struct MAP
 {
   
-    void placementShipRand(int map[n][n], int shipLength, int numships, int& shipsID, int shiplives[n]);
+    void placementShipRand(int map[n][n], int shipLength, int numships, int& shipsID, int shiplives[N]);
     void printEnemyMap(int mask[n][n]);
     void printMyMap(int map[n][n]);
     bool shipinmap(int x, int y, int direction, int shipLength);
-    bool setship(int map[n][n], int x, int y, int direction, int shipLength, int& shipsID, int shiplives[n]);
+    bool setship(int map[n][n], int x, int y, int direction, int shipLength, int& shipsID, int shiplives[N]);
     void showShip(int mymap[n][n], int x, int y, int direction, int shipLength);
-    void placementShip(int mymap[n][n], int shipLength, int numships, int& shipsID, int shiplives[n]);
+    void placementShip(int mymap[n][n], int shipLength, int numships, int& shipsID, int shiplives[N]);
 };
 struct Battle
 {
     MAP Map;
-    int IsAlive(int shiplives[n]);
-    bool playingAgainst(int map[n][n], int mask[n][n] , int mymap[n][n], bool turn, int shiplives[n]);
-    void creatPersonMap(int map[n][n], int numships, int& shipsID, int shiplives[n]);
-    bool WhoWin(int Shiplives[n], int ShiplivesMy[n]);
+    int IsAlive(int shiplives[N]);
+    bool playingAgainst(int map[n][n], int mask[n][n] , int mymap[n][n], bool turn, int shiplives[N]);
+    void creatPersonMap(int map[n][n], int numships, int& shipsID, int shiplives[N]);
+    bool WhoWin(int Shiplives[N], int ShiplivesMy[N]);
 };
 
 
@@ -33,7 +34,7 @@ int main()
     SetConsoleOutputCP(1251);
     MAP Map;
     Battle battle;
-    int N = n * 2;
+    
     int map[n][n] = { 0 };// создание карты противника
     int mymap[n][n] = { 0 };//создание своей карты
     int mask[n][n];// маска для создания тумана войны
@@ -42,8 +43,8 @@ int main()
     int numships = 4;//колво кораблей заданной длины
     int ShipID = 1;
     int ShipMyID = 1;
-    int Shiplives[n] = { 0 };
-    int ShiplivesMy[n] = { 0 };
+    int Shiplives[N] = { 0 };
+    int ShiplivesMy[N] = { 0 };
     
     ///
     // игра с противником
@@ -134,7 +135,7 @@ bool Battle::WhoWin(int Shiplives[n], int ShiplivesMy[n])
 {
     int sum = 0;
     int summy = 0;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < N; i++)
     {
         sum += Shiplives[i];
         summy += ShiplivesMy[i];
@@ -155,7 +156,7 @@ bool Battle::WhoWin(int Shiplives[n], int ShiplivesMy[n])
         return 0;
     }
 }
-void Battle::creatPersonMap(int map[n][n], int numships, int& shipsID, int shiplives[n])
+void Battle::creatPersonMap(int map[n][n], int numships, int& shipsID, int shiplives[N])
 {
     cout << "\n\n****** НАЧИНАЕТСЯ РАСТАНОВКА ******" << endl;
     cout << " \nпротивник не подглядывает ? " << endl;
@@ -186,7 +187,7 @@ void Battle::creatPersonMap(int map[n][n], int numships, int& shipsID, int shipl
     Sleep(2000);
     system("cls");
 }
-void MAP::placementShipRand(int map[n][n], int shipLength, int numships,int& shipsID, int shiplives[n])//постройка корабля в рандомном месте
+void MAP::placementShipRand(int map[n][n], int shipLength, int numships,int& shipsID, int shiplives[N])//постройка корабля в рандомном месте
 {
     int x, y;// началальные рандомные координаты коробля
     int direction = 0;// рандомное направление 0-вправо 1-вниз 2-влево 3-вверх
@@ -308,16 +309,16 @@ void MAP::printEnemyMap(int mask[n][n])// печать карты компьют
         cout << endl;
     }
 }
-int Battle::IsAlive(int shiplives[n])//подсчёт кол-во жизни
+int Battle::IsAlive(int shiplives[N])//подсчёт кол-во жизни
 {
     int sum = 0;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < N; i++)
     {
         sum += shiplives[i];
     }
     return sum;
 }
-bool Battle::playingAgainst(int map[n][n], int mask[n][n],int mymap[n][n],bool turn, int shiplives[n])
+bool Battle::playingAgainst(int map[n][n], int mask[n][n],int mymap[n][n],bool turn, int shiplives[N])
 {
     //процесс игра человека против копьютера
     cout << endl << " Моя карта" << endl;
@@ -420,7 +421,7 @@ bool MAP::shipinmap(int x, int y, int direction, int shipLength)//корбль �
 
     return in_map;
 }
-bool MAP::setship(int map[n][n], int x, int y, int direction, int shipLength, int& shipsID, int shiplives[n])//проверка возможности и поставление корабля
+bool MAP::setship(int map[n][n], int x, int y, int direction, int shipLength, int& shipsID, int shiplives[N])//проверка возможности и поставление корабля
 {
     int x_new = x;
     int y_new = y;
@@ -610,7 +611,7 @@ void MAP::showShip(int mymap[n][n], int x, int y, int direction, int shipLength)
         cout << endl;
     }
 }
-void MAP::placementShip(int mymap[n][n], int shipLength, int numships, int& shipsID, int shiplives[n])
+void MAP::placementShip(int mymap[n][n], int shipLength, int numships, int& shipsID, int shiplives[N])
 {
     /////// //растановка в ручную
     int direction = 0;//начальное напрвление
