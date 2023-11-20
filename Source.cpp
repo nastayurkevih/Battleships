@@ -39,55 +39,47 @@ int main()
     MAP Map;
     int map[n][n] = { 0 };// создание карты противника
     int mymap[n][n] = { 0 };//создание своей карты
-    int mask[n][n];// маска для создания тумана войны
-    int maskmy[n][n];
+    int mask[n][n] = {0};// маска для создания тумана войны
+    int maskmy[n][n] = {0};
     int shipLength = 4;//длина коробля
     int numships = 4;//колво кораблей заданной длины
     int ShipID = 1;
     int ShipMyID = 1;
     int Shiplives[N] = { 0 };
     int ShiplivesMy[N] = { 0 };
-
-   
-    battle.playingWithComputer( map, mask,  ShipID,  Shiplives,  mymap,  maskmy,  ShipMyID,   ShiplivesMy,  numships);
-
-    //cout << endl << endl << "\t ВАС ПРИВЕТСТВУЕТ ИГРА \t" << endl;
-    //cout << "\t    МОРСКОЙ БОЙ \t" << endl;
-    //cout << "..^v^\n_____________$…... ^v ^ ..\n____... ^v ^ $$\n_____________$_$$\n_____________$$$ …..... ^ v ^\n _... ^v ^__$$_§§§.\n___________$$$_§§§§§\n___________$_$_§§§§§§ ………..... ^ v ^\n__________$$_$__§§§§§§\n_________$$$_$__§§§§§§§\n________$$$$_$__§§§§§§§§\n_______$$$$$_$__§§§§§§§§\n_____$$$$$$$_$__§§§§§§§§§\n____$$$$$$$$_$_§§§§§§§§§§§\n_$_$$$$$$$$$_$_§§§§§§§§§§§\n_$$_$________$$$_____$$$$$___$$\n__$$$$$$$$$$$$$$$$$$$$$$$_$$$$.\n___$$$$$$$$$$$$$$$$$$$$$$$$$$\n_.. - +*° * -.._ ~~~*° * ~~~_.. - *° * -.._\n~~~_.. - *° * -..~~~~_.. - *° * -.._\n_.. - *~~° * -..__.. - *~~~~° * -.._ * -... - *°\n_.~*° * ~~~~_.. - *~~~~° * -.._ * . - *° * -.._";
-    //int choise;
-    //Sleep(2000);
-    //system("cls");
-    //cout << "  Если вы не закомы с правилами нажмите i\n" << endl;
-    //cout << "  Если правила вам знакомы переходим к выбору режима игры.\n " << endl;
-    //choise = _getch();
-    //system("cls");
-    //if (choise == 13)
-    //{
-
-    //    battle.Play(map, mask, ShipID, Shiplives, mymap, maskmy, ShipMyID, ShiplivesMy, numships);
-    //}
-    //else if (choise == 105)
-    //{
-    //    cout << "\tПРАВИЛА ИГРЫ\t\n" << endl;
-    //    cout << "1) Вам необходимо делать выстрелы по карте противника, пока один извас не победит.\n";
-    //    cout << "2) На вашем поле символ 'S' означает ваш целый корабль, а 'Х' убитая часть корабля \n";
-    //    cout << "3) На карте противника 'Х' попадание по вражескому караблю, а '.' промах \n";
-    //    cout << "4) Вам будет предложенно 2 режима игры: с компьютером и с противником\n";
-    //    cout << "5) Вам будут предложенно 2 варианта растоновки кораблей: вручную и рандомно\n";
-    //    cout << "\nПриступим к игре? " << endl;
-    //    _getch();
-    //    battle.Play(map, mask, ShipID, Shiplives, mymap, maskmy, ShipMyID, ShiplivesMy, numships);
-    //}
-
-
-
-
+    cout << endl << endl << "\t ВАС ПРИВЕТСТВУЕТ ИГРА \t" << endl;
+    cout << "\t    МОРСКОЙ БОЙ \t" << endl;
+    cout << "..^v^\n_____________$…... ^v ^ ..\n____... ^v ^ $$\n_____________$_$$\n_____________$$$ …..... ^ v ^\n _... ^v ^__$$_§§§.\n___________$$$_§§§§§\n___________$_$_§§§§§§ ………..... ^ v ^\n__________$$_$__§§§§§§\n_________$$$_$__§§§§§§§\n________$$$$_$__§§§§§§§§\n_______$$$$$_$__§§§§§§§§\n_____$$$$$$$_$__§§§§§§§§§\n____$$$$$$$$_$_§§§§§§§§§§§\n_$_$$$$$$$$$_$_§§§§§§§§§§§\n_$$_$________$$$_____$$$$$___$$\n__$$$$$$$$$$$$$$$$$$$$$$$_$$$$.\n___$$$$$$$$$$$$$$$$$$$$$$$$$$\n_.. - +*° * -.._ ~~~*° * ~~~_.. - *° * -.._\n~~~_.. - *° * -..~~~~_.. - *° * -.._\n_.. - *~~° * -..__.. - *~~~~° * -.._ * -... - *°\n_.~*° * ~~~~_.. - *~~~~° * -.._ * . - *° * -.._";
+    int choise;
+    Sleep(2000);
+    system("cls");
+    cout << "  Если вы не закомы с правилами нажмите i\n" << endl;
+    cout << "  Если правила вам знакомы переходим к выбору режима игры.\n " << endl;
+    choise = _getch();
+    system("cls");
+    if (choise == 13)
+    {
+        battle.Play(map, mask, ShipID, Shiplives, mymap, maskmy, ShipMyID, ShiplivesMy, numships);
+    }
+    else if (choise == 105)
+    {
+        cout << "\tПРАВИЛА ИГРЫ\t\n" << endl;
+        cout << "1) Вам необходимо делать выстрелы по карте противника, пока один извас не победит.\n";
+        cout << "2) На вашем поле символ 'S' означает ваш целый корабль, а 'Х' убитая часть корабля \n";
+        cout << "3) На карте противника 'Х' попадание по вражескому караблю, а '.' промах \n";
+        cout << "4) Вам будет предложенно 2 режима игры: с компьютером и с противником\n";
+        cout << "5) Вам будут предложенно 2 варианта растоновки кораблей: вручную и рандомно\n";
+        cout << "\nПриступим к игре? " << endl;
+        _getch();
+        battle.Play(map, mask, ShipID, Shiplives, mymap, maskmy, ShipMyID, ShiplivesMy, numships);
+    }
 }
+
 void Battle::Play(int map[n][n], int  mask[n][n], int& ShipID, int Shiplives[N], int mymap[n][n], int maskmy[n][n], int& ShipMyID, int  ShiplivesMy[N], int numships)
 {
     string name;
     string nameMy;
-    bool Win = 0;
+    int Win = 0;
     while (Win == 0)
     {
         system("cls");
@@ -107,7 +99,7 @@ void Battle::Play(int map[n][n], int  mask[n][n], int& ShipID, int Shiplives[N],
         {
             cout << "Имя первого игрока : ";
             cin >> nameMy;
-            cout << "Имя второго игрока :";
+            std::cout << "Имя второго игрока :";
             cin >> name;
             playingwWithEnemy(map, mask, ShipID, Shiplives, mymap, maskmy, ShipMyID, ShiplivesMy, numships);
         }
@@ -155,7 +147,135 @@ void Battle::playingWithComputer(int map[n][n], int  mask[n][n], int& ShipID, in
 }
 bool Battle::playingCompicter(int map[n][n], int mask[n][n], bool turn, int shiplives[N])
 {
+    //процесс игра человека против копьютера
+//std::cout << " Ход компьютера " << endl;
+//Map.printEnemyMap(mask);
+//int x = 0, y = 0;
 
+////координаты для выстрела
+
+//int new_x, new_y;
+//int made = 0; //состояние стрельбы
+//int dir = 0;//направление стрельбы
+//int sum = 0;
+//for (int i = 0; i < N; i++)
+//{
+//    sum += Shiplives[i];
+
+//}
+//while (sum != 0) {
+//    
+//    if (made == 0)
+//    {
+//        x = rand() % n;
+//        y = rand() % n;
+//        
+//        if (map[x][y] == 1)
+//        {
+//            made = 1;
+//            map[x][y] = -1;
+//            mask[x][y] = -1;
+//            new_x = x;
+//            new_y = y;
+//            Shiplives[map[x][y]]--;
+//            std::cout << "Ранен" << endl;
+//        }
+//        else
+//        {
+//            mask[x][y] = -2;
+//            std::cout << "Промах" << endl;
+//        }
+
+//    }
+//    else if (made == 1) {
+//        if (dir == 0)//влево
+//        {
+//            if (x > 0)
+//            {
+//                x--;
+//            }
+//            else
+//            {
+//                dir = 1;
+//                x = new_x;
+//                y = new_y;
+//                continue;
+//            }
+//        }
+//        else if (dir == 1)//вправо
+//        {
+//            if (x < n - 1)
+//            {
+//                x++;
+//            }
+//            else
+//            {
+//                dir = 2;
+//                x = new_x;
+//                y = new_y;
+//                continue;
+//            }
+//        }
+//        else if (dir == 2)//вверх
+//        {
+//            if (y > 0)
+//            {
+//                y--;
+//            }
+//            else
+//            {
+//                dir = 3;
+//                x = new_x;
+//                y = new_y;
+//                continue;
+//            }
+//        }
+//        else if (dir == 3)//вниз
+//        {
+//            if (y < n - 1)
+//            {
+//                y++;
+//            }
+//            else
+//            {
+//                dir = 0;
+//                x = new_x;
+//                y = new_y;
+//                continue;
+//            }
+//        }
+//        if (map[x][y] > 0  and Shiplives[map[x][y]] > 1)
+//        {
+//            map[x][y] = -1;
+//            mask[x][y] = -1;
+//            std::cout << "Ранен" << endl;
+//            Shiplives[map[x][y]]--;
+//        }
+//        else if (map[x][y] > 0 and Shiplives[map[x][y]] <= 1)
+//        {
+//            map[x][y] = -1;
+//            mask[x][y] = -1;
+//            std::cout << "Убит" << endl;
+//            Shiplives[map[x][y]] = 0;
+//            made = 0;
+//        }
+//        else
+//        {
+//            dir = (dir + 1) % 4;
+//            x = new_x;
+//            y = new_y;
+//            mask[x][y] = -2;
+//            std::cout << "Промах " << endl;
+//        }
+//        Map.printMyMap(mask);
+//        sum = 0;
+//        for (int i = 0; i < N; i++)
+//        {
+//            sum += Shiplives[i];
+//            cout << Shiplives[i] << " ";
+
+//        }
+//    }
     //процесс игра человека против копьютера
     cout << " Ход компьютера " << endl;
     Map.printEnemyMap(mask);
@@ -245,9 +365,6 @@ int Battle::WhoWin(int Shiplives[N], int ShiplivesMy[N])
         sum += Shiplives[i];
         summy += ShiplivesMy[i];
     }
-    cout << sum << endl;
-    cout << summy<<endl;
-
 
     if (sum == 0)
     {
@@ -764,5 +881,4 @@ void MAP::placementShip(int mymap[n][n], int shipLength, int numships, int& ship
     printMyMap(mymap);
     Sleep(1000);
     system("cls");
-
 }
