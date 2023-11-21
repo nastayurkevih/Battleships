@@ -3,7 +3,7 @@ using namespace std;
 const int n = 10;//размер карты
 const int N = n * 2;//размер массива жизни
 
-void Battle::Play(int map[n][n], int  mask[n][n], int& ShipID, int Shiplives[N], int mymap[n][n], int maskmy[n][n], int& ShipMyID, int  ShiplivesMy[N], int numships)
+void Battle::Play(int map[10][10], int  mask[10][10], int& ShipID, int Shiplives[20], int mymap[10][10], int maskmy[10][10], int& ShipMyID, int  ShiplivesMy[20], int numships)
 {
     string name;
     string nameMy;
@@ -33,17 +33,26 @@ void Battle::Play(int map[n][n], int  mask[n][n], int& ShipID, int Shiplives[N],
         }
         Win = WhoWin(Shiplives, ShiplivesMy);
     }
+    system("cls");
     if (Win == 2)
     {
         cout << "\n\tПобедил " << nameMy << "!!!" << endl;
+        cout << "" << nameMy << endl;
+        Map.printMyMap(mymap);
+        cout << "" << name << endl;
+        Map.printMyMap(map);
     }
     else
     {
         cout << "\n\t Победил " << name << "!!!" << endl;
+        cout << "" << name << endl;
+        Map.printMyMap(map);
+        cout << "" << nameMy << endl;
+        Map.printMyMap(mymap);
     }
     _getch();
 }
-void Battle::playingWithComputer(int map[n][n], int  mask[n][n], int& ShipID, int Shiplives[N], int mymap[n][n], int maskmy[n][n], int& ShipMyID, int  ShiplivesMy[N], int numships)
+void Battle::playingWithComputer(int map[10][10], int  mask[10][10], int& ShipID, int Shiplives[20], int mymap[10][10], int maskmy[10][10], int& ShipMyID, int  ShiplivesMy[20], int numships)
 {
 
     for (int i = 1; i < numships + 1; i++)
@@ -73,7 +82,7 @@ void Battle::playingWithComputer(int map[n][n], int  mask[n][n], int& ShipID, in
     }
     system("cls");
 }
-bool Battle::playingCompicter(int map[n][n], int mask[n][n], bool turn, int shiplives[N])
+bool Battle::playingCompicter(int map[10][10], int mask[10][10], bool turn, int shiplives[20])
 {
     //процесс игра человека против копьютера
 //std::cout << " Ход компьютера " << endl;
@@ -252,7 +261,7 @@ bool Battle::playingCompicter(int map[n][n], int mask[n][n], bool turn, int ship
     }
     return turn;
 }
-void Battle::playingwWithEnemy(int map[n][n], int  mask[n][n], int& ShipID, int Shiplives[N], int mymap[n][n], int maskmy[n][n], int& ShipMyID, int  ShiplivesMy[N], int numships)
+void Battle::playingwWithEnemy(int map[10][10], int  mask[10][10], int& ShipID, int Shiplives[20], int mymap[10][10], int maskmy[10][10], int& ShipMyID, int  ShiplivesMy[20], int numships)
 {
     // игра с противником
     creatPersonMap(map, numships, ShipID, Shiplives);
@@ -283,8 +292,7 @@ void Battle::playingwWithEnemy(int map[n][n], int  mask[n][n], int& ShipID, int 
 
     system("cls");
 }
-
-int Battle::WhoWin(int Shiplives[N], int ShiplivesMy[N])
+int Battle::WhoWin(int Shiplives[20], int ShiplivesMy[20])
 {
     int sum = 0;
     int summy = 0;
@@ -307,7 +315,7 @@ int Battle::WhoWin(int Shiplives[N], int ShiplivesMy[N])
         return 0;
     }
 }
-void Battle::creatPersonMap(int map[n][n], int numships, int& shipsID, int shiplives[N])
+void Battle::creatPersonMap(int map[10][10], int numships, int& shipsID, int shiplives[20])
 {
     cout << "\n\n****** НАЧИНАЕТСЯ РАСТАНОВКА ******" << endl;
     cout << " \nпротивник не подглядывает ? " << endl;
@@ -338,9 +346,7 @@ void Battle::creatPersonMap(int map[n][n], int numships, int& shipsID, int shipl
     Sleep(2000);
     system("cls");
 }
-
-
-bool Battle::playingAgainst(int map[n][n], int mask[n][n], int mymap[n][n], bool turn, int shiplives[N])
+bool Battle::playingAgainst(int map[10][10], int mask[10][10], int mymap[10][10], bool turn, int shiplives[20])
 {
     //процесс игра человека против копьютера
     cout << endl << " Моя карта" << endl;

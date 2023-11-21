@@ -3,7 +3,7 @@ using namespace std;
 const int n = 10;//размер карты
 const int N = n * 2;//размер массива жизни
 
-void MAP::placementShip(int mymap[n][n], int shipLength, int numships, int& shipsID, int shiplives[N])
+void MAP::placementShip(int mymap[10][10], int shipLength, int numships, int& shipsID, int shiplives[20])
 {
     /////// //растановка в ручную
     int direction = 0;//начальное напрвление
@@ -58,7 +58,7 @@ void MAP::placementShip(int mymap[n][n], int shipLength, int numships, int& ship
     Sleep(1000);
     system("cls");
 }
-void MAP::showShip(int mymap[n][n], int x, int y, int direction, int shipLength) //предварительная печать корабля
+void MAP::showShip(int mymap[10][10], int x, int y, int direction, int shipLength) //предварительная печать корабля
 {
     int new_x = x;
     int new_y = y;
@@ -122,7 +122,7 @@ void MAP::showShip(int mymap[n][n], int x, int y, int direction, int shipLength)
         cout << endl;
     }
 }
-bool MAP::setship(int map[n][n], int x, int y, int direction, int shipLength, int& shipsID, int shiplives[N])//проверка возможности и поставление корабля
+bool MAP::setship(int map[10][10], int x, int y, int direction, int shipLength, int& shipsID, int shiplives[20])//проверка возможности и поставление корабля
 {
     int x_new = x;
     int y_new = y;
@@ -276,7 +276,7 @@ bool MAP::shipinmap(int x, int y, int direction, int shipLength)//корбль не выхо
 
     return in_map;
 }
-void MAP::printMyMap(int map[n][n])// печать карты компьютера
+void MAP::printMyMap(int map[10][10])// печать карты компьютера
 {
     cout << " ";
     for (int i = 0; i < n; i++)//печать верхних индексов
@@ -306,7 +306,7 @@ void MAP::printMyMap(int map[n][n])// печать карты компьютера
         cout << endl;
     }
 }
-void MAP::printEnemyMap(int mask[n][n])// печать карты компьютера
+void MAP::printEnemyMap(int mask[10][10])// печать карты компьютера
 {
     cout << " ";
     for (int i = 0; i < n; i++)//печать верхних индексов
@@ -335,7 +335,7 @@ void MAP::printEnemyMap(int mask[n][n])// печать карты компьютера
         cout << endl;
     }
 }
-void MAP::placementShipRand(int map[n][n], int shipLength, int numships, int& shipsID, int shiplives[N])//постройка корабля в рандомном месте
+void MAP::placementShipRand(int map[10][10], int shipLength, int numships, int& shipsID, int shiplives[20])//постройка корабля в рандомном месте
 {
     int x, y;// началальные рандомные координаты коробля
     int direction = 0;// рандомное направление 0-вправо 1-вниз 2-влево 3-вверх
@@ -361,7 +361,7 @@ void MAP::placementShipRand(int map[n][n], int shipLength, int numships, int& sh
         bool settingPossible = 1;
 
         for (int i = 0; i < shipLength; i++) {
-            if (x<0 or x>n or y<0 or y>n) //если x или y выходит за границы
+            if (x<0 or x>10 or y<0 or y>n) //если x или y выходит за границы
             {
                 settingPossible = 0;
                 break;

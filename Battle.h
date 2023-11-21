@@ -8,11 +8,11 @@ struct Battle
 {
 
     MAP Map;
-    bool playingAgainst(int map[n][n], int mask[n][n], int mymap[n][n], bool turn, int shiplives[N]);
-    void creatPersonMap(int map[n][n], int numships, int& shipsID, int shiplives[N]);
-    int WhoWin(int Shiplives[N], int ShiplivesMy[N]);
-    void playingwWithEnemy(int map[n][n], int  mask[n][n], int& ShipID, int Shiplives[N], int mymap[n][n], int maskmy[n][n], int& ShipMyID, int  ShiplivesMy[N], int numships);
-    void playingWithComputer(int map[n][n], int  mask[n][n], int& ShipID, int Shiplives[N], int mymap[n][n], int maskmy[n][n], int& ShipMyID, int  ShiplivesMy[N], int numships);
-    bool playingCompicter(int map[n][n], int mask[n][n], bool turn, int shiplives[N]);
-    void Play(int map[n][n], int  mask[n][n], int& ShipID, int Shiplives[N], int mymap[n][n], int maskmy[n][n], int& ShipMyID, int  ShiplivesMy[N], int numships);
+    bool playingAgainst(int map[10][10], int mask[10][10], int mymap[10][10], bool turn, int shiplives[20]);
+    void creatPersonMap(int map[10][10], int numships, int& shipsID, int shiplives[20]);
+    int WhoWin(int Shiplives[20], int ShiplivesMy[20]);
+    void playingwWithEnemy(int map[10][10], int  mask[10][10], int& ShipID, int Shiplives[20], int mymap[10][10], int maskmy[10][10], int& ShipMyID, int  ShiplivesMy[20], int numships);
+    void playingWithComputer(int map[10][10], int  mask[10][10], int& ShipID, int Shiplives[20], int mymap[10][10], int maskmy[10][10], int& ShipMyID, int  ShiplivesMy[20], int numships);
+    bool playingCompicter(int map[10][10], int mask[10][10], bool turn, int shiplives[20]);
+    void Play(int map[10][10], int  mask[10][10], int& ShipID, int Shiplives[20], int mymap[10][10], int maskmy[10][10], int& ShipMyID, int  ShiplivesMy[20], int numships);
 };

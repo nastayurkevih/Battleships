@@ -3,15 +3,15 @@
 #include <time.h>
 #include <windows.h>
 #include <conio.h>
-#include "Battle.h"
+
 struct MAP
 {
 
-    void placementShipRand(int map[n][n], int shipLength, int numships, int& shipsID, int shiplives[N]);
-    void printEnemyMap(int mask[n][n]);
-    void printMyMap(int map[n][n]);
+    void placementShipRand(int map[10][10], int shipLength, int numships, int& shipsID, int shiplives[20]);
+    void printEnemyMap(int mask[10][10]);
+    void printMyMap(int map[10][10]);
     bool shipinmap(int x, int y, int direction, int shipLength);
-    bool setship(int map[n][n], int x, int y, int direction, int shipLength, int& shipsID, int shiplives[N]);
-    void showShip(int mymap[n][n], int x, int y, int direction, int shipLength);
-    void placementShip(int mymap[n][n], int shipLength, int numships, int& shipsID, int shiplives[N]);
+    bool setship(int map[10][10], int x, int y, int direction, int shipLength, int& shipsID, int shiplives[20]);
+    void showShip(int mymap[10][10], int x, int y, int direction, int shipLength);
+    void placementShip(int mymap[10][10], int shipLength, int numships, int& shipsID, int shiplives[20]);
 };
